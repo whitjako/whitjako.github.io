@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Geog 483 Leaflet Tutorial</title>
+	<!-- This tutorial is based on the official Leaflet quickstart: http://leafletjs.com/examples/quick-start/ -->
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+   
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    
+
+</head>
+<body>
+
+<style>
+    	body { margin:0; padding:0; }
+    	#mapid { position:absolute; top:50px; bottom:50px; left:50px; width:900px; height:600px;}
+</style>
+
+<div id="mapid"</div>
+<script>
+
+	var mymap = L.map('mapid').setView([43.466, -80.53], 15);
+
+	L.tileLayer("http://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+	}).addTo(mymap);
+    
+ var customPopup = "Waterloo Park<br/><img src='https://waterlooinsider.files.wordpress.com/2011/06/img_0156.jpg' width='300px'/>";
+var customPop="Uptown Waterloo<br/><img src='http://masrioarchitects.ca/wp/wp-content/uploads/2015/01/uptown-waterloo03-1030x773.jpg' width='300px'/>";
+
+	L.marker([43.466, -80.53]).addTo(mymap)
+		.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+    L.marker([43.466516, -80.534136])
+		.bindPopup(customPopup).addTo(mymap);
+    L.marker([43.464728, -80.523344]).bindPopup(customPop).addTo(mymap);
+	L.marker([43.470161, -80.530107]).addTo(mymap)
+		.bindPopup("University Stadium");
+	L.marker([43.464009, -80.532603]).addTo(mymap)
+		.bindPopup('<a href= "http://www.waterloo.ca/en/gettingactive/waterloomemorialrecreationcomplex.asp">Waterloo Memorial Recreation Complex</a>');
+
+</script>
+
+
+
+</body>
+</html>
